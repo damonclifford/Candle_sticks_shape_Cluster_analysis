@@ -1,8 +1,5 @@
 import os
-import pprint, pickle
-import pandas as pd
-from sklearn.cluster import KMeans
-import datetime
+import pickle
 
 
 class SingleWick():
@@ -26,12 +23,7 @@ class SingleWick():
         middlewick = []
 
         for i in range(len(self.open) - 1):
-            # 阳线
-            if self.close[i] > self.open[i]:
-                para1 = (self.close[i] - self.open[i]) / self.low[i]
-            # 阴线
-            else:
-                para1 = (self.open[i] - self.close[i]) / self.low[i]
+            para1 = (self.close[i] - self.open[i]) / self.low[i]
             middlewick.append(para1)
         return middlewick
 
