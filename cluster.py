@@ -3,7 +3,7 @@ from sklearn.externals import joblib
 import pickle
 import numpy
 
-file_path = 'C:/Users/lyzdsb/Desktop/' + 'finalProgrameraw_data_version3.pkl'
+file_path = r'C:\Users\lyzdsb\PycharmProjects\untitled3\data\raw_data_integrate' + r'\raw_data_para3.pkl'
 mode_path = r'C:\Users\lyzdsb\PycharmProjects\untitled3\para3_data'
 pkl_file = open(file_path, 'rb')
 X = pickle.load(pkl_file)
@@ -13,7 +13,7 @@ for i in range(10, 40, 1):
     clf = KMeans(n_clusters=i)
     s = clf.fit(X)
     # 需要设置参数 compress = 3， 否则保存的模型文件的同时会生成很多杂乱的文件
-    joblib.dump(clf, mode_path + '\mode_i_' + str(i) + 'pkl', compress=3)
+    joblib.dump(clf, mode_path + r'\mode_i_' + str(i) + '.pkl', compress=3)
     print(i, clf.inertia_)
 
 # for i in range(20,24):
