@@ -5,7 +5,6 @@ import matplotlib.finance as mpf
 from sklearn.cluster import KMeans
 from sklearn.externals import joblib
 
-
 clf = joblib.load('mode_i_60.pkl')
 X = clf.cluster_centers_
 # print(X[0][3]*10)
@@ -14,23 +13,23 @@ X = clf.cluster_centers_
 data_list = []
 
 for i in range(len(X)):
-    #上涨
-    if X[i][3] >=0:
-        close = X[i][3]*10 + 10
-        open = close - X[i][0]*10
-        high = X[i][1]*10 + close
-        low = open - X[i][2]*10
-        datas = (i*2, open, high, low, close)
+    # 上涨
+    if X[i][3] >= 0:
+        close = X[i][3] * 10 + 10
+        open = close - X[i][0] * 10
+        high = X[i][1] * 10 + close
+        low = open - X[i][2] * 10
+        datas = (i * 2, open, high, low, close)
         data_list.append(datas)
-    #下跌
+    # 下跌
     else:
-        close = X[i][3]*10 + 10
-        low = close - X[i][2]*10
-        open = X[i][0]*10 + close
-        high = X[i][1]*10 + open
-        datas = (i*2, open, high, low, close)
+        close = X[i][3] * 10 + 10
+        low = close - X[i][2] * 10
+        open = X[i][0] * 10 + close
+        high = X[i][1] * 10 + open
+        datas = (i * 2, open, high, low, close)
         data_list.append(datas)
-lista = range(0, len(data_list)*2, 2)
+lista = range(0, len(data_list) * 2, 2)
 
 # for i in range(len(data_list)):
 #     data_list[i][0] = lista[i]
