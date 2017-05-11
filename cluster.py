@@ -3,21 +3,24 @@ from sklearn.externals import joblib
 import pickle
 import numpy
 
-file_path = 'C:/Users/lyzdsb/Desktop/' + 'finalProgrameraw_data_version2.pkl'
+file_path = 'C:/Users/lyzdsb/Desktop/' + 'finalProgrameraw_data_version3.pkl'
+mode_path = r'C:\Users\lyzdsb\PycharmProjects\untitled3\para3_data'
 pkl_file = open(file_path, 'rb')
 X = pickle.load(pkl_file)
 
-# for i in range(5, 100, 1):
-#     clf = KMeans(n_clusters=i)
-#     s = clf.fit(X)
-#     joblib.dump(clf, 'mode_i_'+str(i)+'.pkl')
-#     print(i, clf.inertia_)
+# 训练模型并且保存
+for i in range(10, 40, 1):
+    clf = KMeans(n_clusters=i)
+    s = clf.fit(X)
+    # 需要设置参数 compress = 3， 否则保存的模型文件的同时会生成很多杂乱的文件
+    joblib.dump(clf, mode_path + '\mode_i_' + str(i) + 'pkl', compress=3)
+    print(i, clf.inertia_)
 
-for i in range(20,24):
-    clf = joblib.load('mode_i_' + str(i) + '.pkl')
-    print(clf.cluster_centers_)
+# for i in range(20,24):
+#     clf = joblib.load('mode_i_' + str(i) + '.pkl')
+#     print(clf.cluster_centers_)
 
-
+# clf = joblib.load('mode_i_' + str(i) + '.pkl')
 
 # 模型的保存和调用
 # joblib.dump(clf, 'mode_i_25.pkl')
@@ -33,6 +36,3 @@ for i in range(20,24):
 # print(result)
 # 簇内距离和
 # print(clf.inertia_)
-
-
-
