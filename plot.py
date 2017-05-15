@@ -16,7 +16,7 @@ for i in range(10, 51, 2):
     for j in range(len(centerCollection)):
         for k in range(j + 1, len(centerCollection)):
             dist = np.linalg.norm(centerCollection[j] - centerCollection[k])
-            between = dist + between*1.015
+            between = dist + between
 
     ratio = between / (between + within)
     X.append(i)
