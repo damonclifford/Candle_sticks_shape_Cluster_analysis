@@ -22,7 +22,7 @@ class SingleWick():
 
         middlewick = []
 
-        for i in range(len(self.open) - 1):
+        for i in range(len(self.open) ):
             para1 = (self.close[i] - self.open[i]) / self.low[i]
             middlewick.append(para1)
         return middlewick
@@ -30,7 +30,7 @@ class SingleWick():
     # 上影线
     def get_upperwick_rate(self):
         upperwick = []
-        for i in range(len(self.open) - 1):
+        for i in range(len(self.open) ):
             # 阳线
             if self.close[i] > self.open[i]:
                 para2 = (self.high[i] - self.close[i]) / self.low[i]
@@ -44,7 +44,7 @@ class SingleWick():
     # 下影线
     def get_lowerwick_rate(self):
         lowerwick = []
-        for i in range(len(self.open) - 1):
+        for i in range(len(self.open)):
             # 阳线
             if self.close[i] > self.open[i]:
                 para3 = (self.open[i] - self.low[i]) / self.low[i]

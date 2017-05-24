@@ -2,12 +2,12 @@
 import tushare as ts
 import matplotlib.pyplot as plt
 import matplotlib.finance as mpf
-from sklearn.cluster import KMeans
 from sklearn.externals import joblib
 
 mode_path = r'C:\Users\lyzdsb\PycharmProjects\untitled3\data\para3_data'
-clf = joblib.load(mode_path + r'\mode_i_28.pkl')
+clf = joblib.load(mode_path + r'\mode_i_30.pkl')
 X = clf.cluster_centers_
+print(X)
 # print(X[0][3]*10)
 # 3个para, 默认low[i] = 10
 
