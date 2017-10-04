@@ -5,9 +5,9 @@ import matplotlib.finance as mpf
 from matplotlib.pylab import date2num
 import datetime
 
-labels_path = r'C:\Users\lyzdsb\PycharmProjects\untitled3\data\labels.pkl'
-mode_path = r'C:\Users\lyzdsb\PycharmProjects\untitled3\data\para3_data'
-rawData_path = r'C:\Users\lyzdsb\PycharmProjects\untitled3\data\raw_data'
+labels_path = r'C:\Users\lyzdsb\PycharmProjects\finalProject\data\labels.pkl'
+mode_path = r'C:\Users\lyzdsb\PycharmProjects\finalProject\data\para3_data'
+rawData_path = r'C:\Users\lyzdsb\PycharmProjects\finalProject\data\raw_data'
 
 # read document to get label_list
 labels_pkl = open(labels_path, 'rb')
