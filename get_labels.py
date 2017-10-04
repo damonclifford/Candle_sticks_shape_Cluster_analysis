@@ -2,16 +2,16 @@ import pickle
 import os
 from sklearn.externals import joblib
 
-mode_path = r'C:\Users\lyzdsb\PycharmProjects\untitled3\data\para3_data'
-file_path = r'C:\Users\lyzdsb\PycharmProjects\untitled3\data\raw_data_integrate' + r'\raw_data_para3.pkl'
-dirpath = r'C:\Users\lyzdsb\PycharmProjects\untitled3\data'
+mode_path = r'C:\Users\lyzdsb\PycharmProjects\finalProject\data\para3_data'
+file_path = r'C:\Users\lyzdsb\PycharmProjects\finalProject\data\raw_data_integrate' + r'\raw_data_para3.pkl'
+dirpath = r'C:\Users\lyzdsb\PycharmProjects\finalProject\data'
 
 # load data
 # pkl_files = open(file_path, 'rb')
 # data_integrate = pickle.load(pkl_files)
 # pkl_files.close()
 
-# 获取每个股票的数据量list
+# get the number of data of every stock
 # code_list = os.listdir(dirpath + r'\raw_data')
 # data_len = []
 # counter = 0
@@ -36,14 +36,14 @@ pkl_files = open(dirpath + '\data_len.pkl', 'rb')
 data_len = pickle.load(pkl_files)
 pkl_files.close()
 
-# 获取labels的list
+# get the list of labels
 count = 0
 result = []
 for len in data_len:
     result.append(X[count:count + len])
     count = count + len
 
-# 把labels保存到本地
+# save labels
 label_file = open(dirpath + r'\labels.pkl', 'wb')
 pickle.dump(result, label_file, -1)
 label_file.close()
