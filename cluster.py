@@ -15,17 +15,5 @@ for i in range(10, 51, 2):
     joblib.dump(clf, mode_path + r'\mode_i_' + str(i) + '.pkl', compress=3)
     print(i, clf.inertia_)
 
-# overall_distance = inner_distance + inter_distance
 
-# load models
-joblib.dump(clf, 'mode_i_25.pkl')
-clf = joblib.load('mode_i_25.pkl')
-centerCollection = clf.cluster_centers_
-
-global result
-result = 0
-for i in range(len(centerCollection)):
-    for j in range(i + 1, len(centerCollection)):
-        dist = numpy.linalg.norm(centerCollection[i] - centerCollection[j]).item()
-        result = dist + result
 
