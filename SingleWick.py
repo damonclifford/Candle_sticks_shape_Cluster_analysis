@@ -4,20 +4,20 @@ import pickle
 
 class SingleWick():
     def __init__(self, data):
-        # data是该股票的全部数据
+        # all stock data 
         self.data = data
-        # open：开盘价
+        # open
         self.open = data['open']
-        # close：收盘价
+        # close
         self.close = data['close']
-        # high：最高价
+        # high
         self.high = data['high']
-        # low最低价
+        # low
         self.low = data['low']
-        # 文件路径
+        # data file path
         # self.dirpath = dirpath
 
-    # 中影线
+    # middle stick
     def get_middlewick_rate(self):
 
         middlewick = []
@@ -27,35 +27,35 @@ class SingleWick():
             middlewick.append(para1)
         return middlewick
 
-    # 上影线
+    # upper stick
     def get_upperwick_rate(self):
         upperwick = []
         for i in range(len(self.open) ):
-            # 阳线
+            # ups
             if self.close[i] > self.open[i]:
                 para2 = (self.high[i] - self.close[i]) / self.low[i]
                 upperwick.append(para2)
-            # 阴线
+            # downs
             else:
                 para2 = (self.high[i] - self.open[i]) / self.low[i]
             upperwick.append(para2)
         return upperwick
 
-    # 下影线
+    # down stick
     def get_lowerwick_rate(self):
         lowerwick = []
         for i in range(len(self.open)):
-            # 阳线
+            # ups
             if self.close[i] > self.open[i]:
                 para3 = (self.open[i] - self.low[i]) / self.low[i]
                 lowerwick.append(para3)
-            # 阴线
+            # downs
             else:
                 para3 = (self.close[i] - self.low[i]) / self.low[i]
             lowerwick.append(para3)
         return lowerwick
 
-    # 当天涨跌幅，因为变量close_dif自带正负，所以变量的正负代表涨跌，变量的值代表涨跌幅
+    # the positive value of close_dif means ups tread while the negative value means downs trend
     # def get_close_dif_rate(self):
     #     close_dif = []
     #     for i in range(len(self.open) - 1):
